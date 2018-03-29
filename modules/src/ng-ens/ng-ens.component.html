@@ -1,0 +1,15 @@
+<section>
+    <h1>
+        Owner: {{ account$ | async }}
+    </h1>
+    <input #name placeholder="Set a name here"/>
+    <button (click)="isAvailable(name.value)">Check availability</button>
+    <button (click)="registerPublic(name.value)">Register Public</button>
+    <button (click)="registerCustom(name.value)">Register Custom</button>
+</section>
+
+<section>
+    <h1>Get Address</h1>
+    <input #nameToAddress placeholder="name used for the address"/>
+    <button (click)="getAddress(nameToAddress.value)">Get Address</button>
+</section>
