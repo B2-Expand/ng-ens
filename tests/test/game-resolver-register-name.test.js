@@ -7,11 +7,10 @@ const { namehash } = require('../utils/utils');
 // Connect to the Ganache provider
 const web3 = new Web3(ganache.provider());
 
-// let accounts, ens, registrar, resolver;
+let accounts, ens, registrar, resolver;
 const name = 'toto';
 const node = namehash(web3, `${name}.test`);
 const subnode = web3.utils.sha3(name);
-/*
 beforeEach(async () => {
     accounts = await web3.eth.getAccounts();
 
@@ -33,7 +32,7 @@ beforeEach(async () => {
         .deploy({ data: GameResolver.bytecode, arguments: [ens.options.address] })
         .send({ from: accounts[0], gas: '2000000' });
 })
-*/
+
 /**
  * Register a name with a game resolver
  */

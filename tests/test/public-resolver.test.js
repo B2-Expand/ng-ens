@@ -7,7 +7,6 @@ const { ENSRegistry, PublicResolver } = require('../compile');
 const web3 = new Web3(ganache.provider());
 
 // let accounts, ens, resolver;
-/*
 beforeEach(async () => {
     accounts = await web3.eth.getAccounts();
     ens = await new web3.eth.Contract(JSON.parse(ENSRegistry.interface))
@@ -18,7 +17,7 @@ beforeEach(async () => {
         .deploy({ data: PublicResolver.bytecode, arguments: [ens.options.address] })
         .send({ from: accounts[0], gas: '2000000' });
 })
-*/
+
 describe('PublicResolver', () => {
     it('Create a contract with an address', () => {
         assert.ok(resolver.options.address);

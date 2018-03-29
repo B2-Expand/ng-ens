@@ -8,7 +8,6 @@ const { namehash } = require('../utils/utils');
 const web3 = new Web3(ganache.provider());
 
 // let accounts, ens, registrar;
-/*
 beforeEach(async () => {
     accounts = await web3.eth.getAccounts();
     ens = await new web3.eth.Contract(JSON.parse(ENSRegistry.interface))
@@ -22,7 +21,6 @@ beforeEach(async () => {
         ]})
         .send({ from: accounts[0], gas: '1000000' });
 })
-*/
 
 describe('TestRegistrar', () => {
     it('Create a contract with an address', () => {
