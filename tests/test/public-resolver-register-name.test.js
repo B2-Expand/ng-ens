@@ -28,11 +28,17 @@ beforeEach(async () => {
         ]})
         .send({ from: accounts[0], gas: '1000000' });
 
+    ens.methods.setSubnodeOwner(
+        '0x0000000000000000000000000000000000000000000000000000000000000000',
+        'test',
+        resigtrar.options.address
+    ).send({ from: accounts[0], gas: '1000000' });
+
     // Public resolver
     resolver = await new web3.eth.Contract(JSON.parse(PublicResolver.interface))
         .deploy({ data: PublicResolver.bytecode, arguments: [ens.options.address] })
         .send({ from: accounts[0], gas: '2000000' });
-})
+});
 
 /**
  * Register a name with a public resolver
@@ -73,6 +79,6 @@ describe('Register a name with Public Resolver', () => {
             .then(() => useResolver)
             .then(() => setAddress)
             .then(() => getAddress)
-            .then((address) => assert.ok(address == accounts[0]));
+            .then((address) => assert.ok(address === accounts[0]));
     });
 });

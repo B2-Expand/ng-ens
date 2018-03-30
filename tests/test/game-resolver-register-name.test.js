@@ -9,7 +9,7 @@ const web3 = new Web3(ganache.provider());
 
 let accounts, ens, registrar, resolver;
 const name = 'toto';
-const node = namehash(web3, `${name}.test`);
+const node = namehash(web3, `${name}.game`);
 const subnode = web3.utils.sha3(name);
 beforeEach(async () => {
     accounts = await web3.eth.getAccounts();
@@ -26,6 +26,13 @@ beforeEach(async () => {
             namehash(web3, 'test')
         ]})
         .send({ from: accounts[0], gas: '1000000' });
+
+
+    ens.methods.setSubnodeOwner(
+        '0x0000000000000000000000000000000000000000000000000000000000000000',
+        'game',
+        resigtrar.options.address
+    ).send({ from: accounts[0], gas: '1000000' });
 
     // Game resolver
     resolver = await new web3.eth.Contract(JSON.parse(GameResolver.interface))
